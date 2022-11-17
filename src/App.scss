@@ -1,0 +1,76 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  margin: 40vh auto 0;
+  background-color: blueviolet;
+  width: 340px;
+  padding: 10px 0;
+}
+.inputs{
+  display: flex;
+  justify-content: center;
+  &__position {
+    margin-right: 10px;
+    display: flex;
+  }
+}
+
+input{
+  width: 50px;
+  height: 50px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  background-color: blueviolet;
+  color: white;
+  outline: none;
+  font-size: 40px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+button {
+  margin-right: 10px;
+  width: 100px;
+  border-radius: 20px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  &:hover {
+    background-color: #c08af3;
+    cursor: pointer;
+    color: white;
+    &:disabled {
+      cursor: auto;
+      background-color: rgba(239, 239, 239, 0.3);
+      color: rgba(16, 16, 16, 0.3);
+    }
+  }
+}
+
+p {
+  color: #fff;
+}
+
+.valueName{
+  margin-top: 14px;
+  font-size: 25px;
+}
