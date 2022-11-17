@@ -9,16 +9,19 @@ export function App() {
 
     useEffect(() => {
         if (hours.length >= 3) {
-            setHours(hours.slice(1))
+            setHours(hours)
+        }
+        if (hours >= 23) {
+            setHours('23')
         }
         if (minutes.length >= 3) {
-            setMinutes(minutes.slice(1))
+            setMinutes(minutes)
         }
         if (minutes >= 59) {
             setMinutes('59')
         }
         if (seconds.length >= 3) {
-            setSeconds(seconds.slice(1))
+            setSeconds(seconds)
         }
         if (seconds >= 59) {
             setSeconds('59')
@@ -31,18 +34,18 @@ export function App() {
             const newDate = new Date('May 30, 2020').setHours(Number(hours), Number(minutes), Number(seconds))
             let distance = newDate - countDate
             const interval = setInterval(() => {
-                distance-=1000
+                distance-= 1000
                 const hour = Math.floor((distance % (24 * 60 * 60 * 1000)) / (1000 * 60 * 60))
                 const minute = Math.floor((distance % (60 * 60 * 1000)) / (1000 * 60))
                 const second = Math.floor((distance % (60 * 1000)) / 1000)
                 if (distance < 0) {
-                    alert('Your time is done')
                     clearInterval(interval)
+                    alert('Your time is done')
                     setStart(false)
                 } else {
-                    setHours(hour)
-                    setMinutes(minute)
-                    setSeconds(second)
+                    setHours(String(hour))
+                    setMinutes(String(minute))
+                    setSeconds(String(second))
                 }
             }, 1000)
 
@@ -87,7 +90,7 @@ export function App() {
             <div className="app">
                 <div className="inputs">
                     <span className="inputs__position">
-                        <input disabled={start} min="0" max="99"
+                        <input disabled={start} min="0" max="23"
                                onClick={(e) => handleSelect(e)}
                                onChange={(e) => handleHours(e)}
                                value={hours} type="number"/>
