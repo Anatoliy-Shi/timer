@@ -56,6 +56,7 @@ export function App() {
     }, [hours, minutes, seconds, start])
 
 
+
     const handleHours = (e) => {
         setHours(e.target.value)
     }
@@ -93,6 +94,7 @@ export function App() {
                         <input disabled={start} min="0" max="23"
                                onClick={(e) => handleSelect(e)}
                                onChange={(e) => handleHours(e)}
+                               pattern="\d*"
                                value={hours} type="number"/>
                         <div className="valueName">ч</div>
                     </span>
@@ -100,6 +102,7 @@ export function App() {
                         <input disabled={start} min="0" max="59"
                                onClick={(e) => handleSelect(e)}
                                onChange={(e) => handleMinutes(e)}
+                               pattern="\d*"
                                value={minutes} type="number"/>
                         <div className="valueName">м</div>
                     </span>
@@ -107,6 +110,7 @@ export function App() {
                         <input disabled={start} min="0" max="59"
                                onClick={(e) => handleSelect(e)}
                                onChange={(e) => handleSeconds(e)}
+                               pattern="\d*"
                                value={seconds} type="number"/>
                         <div className="valueName">с</div>
                     </span>
